@@ -1,10 +1,7 @@
 
 package com.yrgo.client;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.GregorianCalendar;
-import java.util.List;
+import java.util.*;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -28,10 +25,10 @@ public class SimpleClient {
         customerService.newCustomer(new Customer("CS03939", "Acme", "Good Customer"));
 
         Call newCall = new Call("Larry Wall called from Acme Corp");
-        Action action1 = new Action("Call back Larry to ask how things are going", new GregorianCalendar(2016, 0, 0), "rac");
-        Action action2 = new Action("Check our sales dept to make sure Larry is being tracked", new GregorianCalendar(2016, 0, 0), "rac");
+        Action action1 = new Action("Call back Larry to ask how things are going", new GregorianCalendar(2016, Calendar.JANUARY, 1), "rac");
+        Action action2 = new Action("Check our sales dept to make sure Larry is being tracked", new GregorianCalendar(2016, Calendar.JANUARY, 1), "rac");
 
-        List<Action> actions = new ArrayList<Action>();
+        List<Action> actions = new ArrayList<>();
         actions.add(action1);
         actions.add(action2);
 
