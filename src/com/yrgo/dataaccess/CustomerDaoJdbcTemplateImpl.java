@@ -2,10 +2,13 @@ package com.yrgo.dataaccess;
 
 import com.yrgo.domain.Call;
 import com.yrgo.domain.Customer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public class CustomerDaoJdbcTemplateImpl implements CustomerDao {
     private static final String INSERT_SQL =
             "INSERT INTO Customer (customerId, companyName, email, telephone, notes) VALUES (?, ?, ?, ?, ?)";
@@ -19,6 +22,7 @@ public class CustomerDaoJdbcTemplateImpl implements CustomerDao {
             "INSERT INTO CustomerCall (timeAndDate, notes, customerId) VALUES (?, ?, ?)";
     private static final String GET_CALL_SQL = "SELECT * FROM CustomerCall WHERE customerId = ?";
 
+    @Autowired
     private final JdbcTemplate template;
 
     public CustomerDaoJdbcTemplateImpl(JdbcTemplate template) {

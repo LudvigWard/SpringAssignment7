@@ -6,17 +6,21 @@ import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
 import com.yrgo.domain.Action;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class ActionDaoJdbcImpl implements ActionDao {
 	private static final String DELETE_SQL = "DELETE FROM ACTION WHERE ACTION_ID=?";
 	private static final String UPDATE_SQL = "UPDATE ACTION SET DETAILS=?, COMPLETE=?, OWNING_USER=?, REQUIRED_BY=? WHERE ACTION_ID=?";
 	private static final String INSERT_SQL = "INSERT INTO ACTION (DETAILS, COMPLETE, OWNING_USER, REQUIRED_BY) VALUES (?,?,?,?)";
 	private static final String GET_INCOMPLETE_SQL = "SELECT ACTION_ID, DETAILS, COMPLETE, OWNING_USER, REQUIRED_BY FROM ACTION WHERE OWNING_USER=? AND COMPLETE=?";
 
+	@Autowired
 	private JdbcTemplate template;
 
 	public ActionDaoJdbcImpl(JdbcTemplate template){
