@@ -5,7 +5,9 @@ import java.util.Collection;
 import com.yrgo.domain.Action;
 import com.yrgo.domain.Call;
 import com.yrgo.services.customers.CustomerNotFoundException;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional
 public interface CallHandlingService {
 	// DO NOT IMPLEMENT THIS INTERFACE UNTIL A LATER CHAPTER!
 

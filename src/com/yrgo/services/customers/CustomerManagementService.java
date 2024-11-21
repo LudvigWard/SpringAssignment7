@@ -4,8 +4,9 @@ import java.util.List;
 
 import com.yrgo.domain.Call;
 import com.yrgo.domain.Customer;
+import org.springframework.transaction.annotation.Transactional;
 
-
+@Transactional
 public interface CustomerManagementService {
 
 	public void newCustomer(Customer newCustomer);
