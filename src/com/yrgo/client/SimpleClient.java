@@ -18,7 +18,7 @@ public class SimpleClient {
     public static void main(String[] args) {
         ClassPathXmlApplicationContext container = null;
         try {
-            container = new ClassPathXmlApplicationContext("application-annotation.xml");
+            container = new ClassPathXmlApplicationContext("production-application.xml");
 
             CustomerManagementService customerService = container.getBean(CustomerManagementService.class);
             CallHandlingService callService = container.getBean(CallHandlingService.class);
